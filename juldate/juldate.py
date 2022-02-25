@@ -24,9 +24,28 @@ def datetime_to_jd(
     dt: _u.AnyDatetime,
     origin: Union[str, _u.AnyNumber] = 0,
 ) -> np.longdouble:
+    """
+    Convert given date and time to Julian day.
+
+    Args:
+        dt: Date and time to convert.
+        origin: Epoch (in standard Julian days) from which Julian days count
+            starts.
+
+            Allowed values are 'jd', 'mjd' and any numeric value. 'jd' stands
+            for standard Julian day. 'mjd' - for Modified Julian day. Default
+            value is 0.
+
+    Raises:
+        ValueError: If provided origin type is unsupported.
+
+    Returns:
+        Julian day.
+    """
+
     if isinstance(dt, np.datetime64):
         dt = dt.astype(datetime)
-    return _u.date_to_jdn(dt.year, dt.month, dt.day) - \
+    return np.longdouble(_u.date_to_jdn(dt.year, dt.month, dt.day)) - \
         _u.get_origin_offset(origin) + \
         _u.time_to_jd_part(dt.hour, dt.minute, dt.second, dt.microsecond)
 
