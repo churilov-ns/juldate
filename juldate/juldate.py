@@ -24,12 +24,11 @@ def datetime_to_jd(
     dt: Union[datetime, np.datetime64],
     origin: Union[str, _u.AnyNumber] = 0,
 ) -> np.longdouble:
-    # if isinstance(dt, np.datetime64):
-    #     dt = dt.astype(datetime)
-    # return _u.date_to_jdn(dt.year, dt.month, dt.day) - \
-    #     _u.get_origin_offset(origin) + \
-    #     _u.time_to_jd(dt.hour, dt.minute, dt.second, dt.microsecond)
-    pass
+    if isinstance(dt, np.datetime64):
+        dt = dt.astype(datetime)
+    return _u.date_to_jdn(dt.year, dt.month, dt.day) - \
+        _u.get_origin_offset(origin) + \
+        _u.time_to_jd_part(dt.hour, dt.minute, dt.second, dt.microsecond)
 
 
 def jd_to_datetime(

@@ -21,7 +21,6 @@ _DAY_MSEC = _DAY_SEC * _float(1000)
 ORIGINS = {
     'jd': _float(0.0),
     'mjd': _float(2400000.5),
-    'cnes': _float(2433282.5),
 }
 
 
@@ -48,7 +47,7 @@ def get_origin_offset(origin: Union[str, AnyNumber]) -> _float:
         return _float(origin)
 
 
-def date_to_jdn(year: int, month: int, day: int) -> int:
+def date_to_jdn(year: int, month: int, day: int) -> _float:
     """
     Convert calendar date to Julian day number.
 
@@ -63,9 +62,10 @@ def date_to_jdn(year: int, month: int, day: int) -> int:
     a = (14 - month) // 12
     y = year + 4800 - a
     m = month + 12 * a - 3
-    jdn = day + (153 * m + 2) // 5 + \
+    return _float(
+        day + (153 * m + 2) // 5 +
         365 * y + y // 4 - y // 100 + y // 400 - 32045
-    return jdn if year < 0 else jdn - 1
+    )
 
 
 def time_to_jd_part(

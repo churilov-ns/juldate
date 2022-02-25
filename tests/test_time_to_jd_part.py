@@ -16,4 +16,4 @@ from juldate._utils import time_to_jd_part
 )
 def test_time_to_jd_part(hour, minute, second, msec, expected):
     result = time_to_jd_part(hour, minute, second, msec)
-    assert result == pytest.approx(expected)
+    assert result == pytest.approx(expected, abs=1.e-5)
