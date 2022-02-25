@@ -1,12 +1,13 @@
 """
-Library for converting between Julian date and other date/time representations.
+Package for conversion between Julian date and other date/time
+representations.
 """
 
 
-from .juldate import *
+from .api import *
 
 
-__version__ = '0.0.1'
+__version__ = '0.1.0'
 __author__ = 'Nikita Churilov'
 __maintainer__ = __author__
 __email__ = 'churilov-ns@yandex.ru'

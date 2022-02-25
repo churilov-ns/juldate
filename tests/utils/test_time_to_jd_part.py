@@ -24,10 +24,8 @@ def test_time_to_jd_part(hour, minute, second, msec, jd_part):
 
 
 @pytest.mark.parametrize(
-    'hour, minute, second, msec, _',
+    'hour, minute, second, msec, jd_part',
     test_data,
 )
-def test_jd_part_to_time(hour, minute, second, msec, _):
-    jd_part = time_to_jd_part(hour, minute, second, msec)
-    result = jd_part_to_time(jd_part)
-    assert result == (hour, minute, second, msec)
+def test_jd_part_to_time(hour, minute, second, msec, jd_part):
+    assert jd_part_to_time(jd_part) == (hour, minute, second, msec)
