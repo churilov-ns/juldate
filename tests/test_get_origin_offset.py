@@ -3,7 +3,7 @@ from juldate._utils import get_origin_offset
 
 
 @pytest.mark.parametrize(
-    'origin,expected',
+    'origin, expected',
     [
         ('jd', 0),
         ('mjd', 2400000.5),
@@ -12,7 +12,7 @@ from juldate._utils import get_origin_offset
     ],
 )
 def test_get_origin_offset(origin, expected):
-    assert get_origin_offset(origin) == expected
+    assert get_origin_offset(origin) == pytest.approx(expected)
 
 
 def test_get_unsupported_origin_offset():
