@@ -21,7 +21,7 @@ __all__ = [
 
 
 def datetime_to_jd(
-    dt: Union[datetime, np.datetime64],
+    dt: _u.AnyDatetime,
     origin: Union[str, _u.AnyNumber] = 0,
 ) -> np.longdouble:
     if isinstance(dt, np.datetime64):

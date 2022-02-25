@@ -4,11 +4,13 @@ Helper functions and variables to provide conversions.
 
 
 from typing import Union
+from datetime import datetime
 from numbers import Number
 import numpy as np
 
 
 AnyNumber = Union[Number, np.number]
+AnyDatetime = Union[datetime, np.datetime64]
 
 
 _float = np.longdouble
