@@ -7,7 +7,7 @@ date/time representations, like datetime and numpy.datetime64 objects.
 ```commandline
 git clone https://github.com/churilov-ns/juldate.git
 cd juldate
-pip install -e .[dev]
+pip install -e '.[dev]'
 ```
 
 ## Running tests
